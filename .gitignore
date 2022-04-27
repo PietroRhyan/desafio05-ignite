@@ -12,6 +12,11 @@
 /.next/
 /out/
 
+# prismic
+sm.json
+.slicemachine
+customtypes
+
 # production
 /build
 
