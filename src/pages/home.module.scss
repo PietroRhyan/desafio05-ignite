@@ -1,1 +1,51 @@
-// TODO
+.container {
+  max-width: 700px;
+  margin: 4rem auto 0;
+
+  .content {
+    margin-bottom: 3rem;
+    cursor: pointer;
+  
+    h1 {
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: .5rem;
+      text-align: justify;
+    }
+  
+    p {
+      font-weight: 400;
+      font-size: 1.125rem;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+  
+      color: var(--grey-100);
+    }
+    
+    i {
+      margin-right: .4rem;
+    }
+  
+    small {
+      font-size: .875rem;
+      margin-right: 1.5rem;
+  
+      color: var(--grey-500);
+    }
+  }
+
+  button {
+    background: none;
+    border: none;
+    margin: 1rem 0 4rem;
+
+    color: var(--pink-500);
+
+    transition: 100ms;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
