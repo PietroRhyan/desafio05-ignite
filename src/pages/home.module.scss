@@ -1,57 +1,54 @@
-.container {
-  max-width: 700px;
-  margin: 4rem auto 0;
-
-  .content {
+.content {
+  h1 {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: .5rem;
     cursor: pointer;
-  
-    h1 {
-      font-weight: 700;
-      font-size: 2rem;
-      margin-bottom: .5rem;
-    }
-  
-    p {
-      font-weight: 400;
-      font-size: 1.125rem;
-      margin-bottom: 1.5rem;
-  
-      color: var(--grey-100);
-    }
-    
-    i {
-      margin-right: .4rem;
-    }
-  
-    small {
-      font-size: .875rem;
-      margin-right: 1.5rem;
-  
-      color: var(--grey-500);
-    }
   }
 
-  .content + .content {
-    margin-top: 3rem;
-  }
-
-  .content:last-child {
-    margin-bottom: 3rem;
-  }
-
-  button {
-    background: none;
-    border: none;
+  p {
+    font-weight: 400;
     font-size: 1.125rem;
-    margin: 4rem 0 4rem;
+    margin-bottom: 1.5rem;
 
-    color: var(--pink-500);
+    color: var(--grey-100);
+  }
 
-    transition: 100ms;
+  i {
+    margin-right: .4rem;
+  }
 
-    &:hover {
-      text-decoration: underline;
-    }
+  small {
+    font-size: .875rem;
+    margin-right: 1.5rem;
+
+    color: var(--grey-500);
   }
 }
 
+.content:first-child {
+  margin-top: 4rem;
+}
+
+.content+.content {
+  margin-top: 3rem;
+}
+
+.content:last-child {
+  margin-bottom: 3rem;
+}
+
+.loadPosts {
+  background: none;
+  border: none;
+  font-size: 1.125rem;
+  margin: 4rem 0 4rem;
+
+  color: var(--pink-500);
+
+  transition: 100ms;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
