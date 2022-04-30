@@ -3,21 +3,18 @@
   margin: 4rem auto 0;
 
   .content {
-    margin-bottom: 3rem;
     cursor: pointer;
   
     h1 {
       font-weight: 700;
       font-size: 2rem;
       margin-bottom: .5rem;
-      text-align: justify;
     }
   
     p {
       font-weight: 400;
       font-size: 1.125rem;
       margin-bottom: 1.5rem;
-      text-align: justify;
   
       color: var(--grey-100);
     }
@@ -34,10 +31,19 @@
     }
   }
 
+  .content + .content {
+    margin-top: 3rem;
+  }
+
+  .content:last-child {
+    margin-bottom: 3rem;
+  }
+
   button {
     background: none;
     border: none;
-    margin: 1rem 0 4rem;
+    font-size: 1.125rem;
+    margin: 4rem 0 4rem;
 
     color: var(--pink-500);
 
