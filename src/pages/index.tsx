@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import Link from 'next/link';
+import Head from 'next/head';
 
 interface Post {
   uid?: string;
@@ -81,29 +82,34 @@ export default function Home({ postsPagination }: HomeProps) {
 
 
   return (
-    <div className={styles.container}>
-      
-      {posts.map( post => (
-        <Link href={`/posts/${post.uid}`} key={post.uid}>
-          <div className={styles.content}>
-            <h1>{post.data.title}</h1>
-            <p>{post.data.subtitle}</p>
+    <>
+      <Head>
+        <title>Home | spacetraveling</title>
+      </Head>
 
-            <small><i><FiCalendar/></i>{post.first_publication_date}</small>
-            <small><i><FiUser/></i>{post.data.author}</small>
-          </div>
-        </Link>
-      ))}
+      <div className={styles.container}>
+        
+        {posts.map( post => (
+          <Link href={`/posts/${post.uid}`} key={post.uid}>
+            <div className={styles.content}>
+              <h1>{post.data.title}</h1>
+              <p>{post.data.subtitle}</p>
 
-      <button onClick={handleNewPosts}>Carregar mais posts</button>
-    </div>
+              <small><i><FiCalendar/></i>{post.first_publication_date}</small>
+              <small><i><FiUser/></i>{post.data.author}</small>
+            </div>
+          </Link>
+        ))}
+        { nextPage ? <button onClick={handleNewPosts}>Carregar mais posts</button> : '' }
+      </div>
+    </>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient({});
   const postsResponse = await prismic.getByType('posts', {
-    pageSize: 1,
+    pageSize: 2,
   });
 
   const posts = postsResponse.results.map( post => {
