@@ -7,7 +7,7 @@ import commonStyles from '../styles/common.module.scss';
 import styles from './home.module.scss';
 import { useState } from 'react';
 import { format } from 'date-fns';
-import { ptBR } from 'date-fns/locale';
+import ptBR from 'date-fns/locale/pt-BR';
 import Link from 'next/link';
 import Head from 'next/head';
 
@@ -87,20 +87,23 @@ export default function Home({ postsPagination }: HomeProps) {
         <title>Home | spacetraveling</title>
       </Head>
 
-      <div className={styles.container}>
+      <div className={commonStyles.container}>
         
         {posts.map( post => (
-          <Link href={`/posts/${post.uid}`} key={post.uid}>
-            <div className={styles.content}>
-              <h1>{post.data.title}</h1>
-              <p>{post.data.subtitle}</p>
+          <div className={styles.content} key={post.uid}>
+            <Link href={`/post/${post.uid}`}>
+              <a>
+                <h1>{post.data.title}</h1>
+              </a>
+            </Link>
+            <p>{post.data.subtitle}</p>
 
-              <small><i><FiCalendar/></i>{post.first_publication_date}</small>
-              <small><i><FiUser/></i>{post.data.author}</small>
-            </div>
-          </Link>
+            <small><i><FiCalendar/></i>{post.first_publication_date}</small>
+            <small><i><FiUser/></i>{post.data.author}</small>
+          </div>
         ))}
-        { nextPage ? <button onClick={handleNewPosts}>Carregar mais posts</button> : '' }
+
+        { nextPage ? <button className={styles.loadPosts} onClick={handleNewPosts}>Carregar mais posts</button> : '' }
       </div>
     </>
   )
