@@ -4,6 +4,13 @@
     font-size: 2rem;
     margin-bottom: .5rem;
     cursor: pointer;
+
+    transition: 200ms;
+
+    &:hover {
+      color: var(--pink-500);
+      text-decoration: underline;
+    }
   }
 
   p {
@@ -24,6 +31,8 @@
 
     color: var(--grey-500);
   }
+
+  
 }
 
 .content:first-child {
